@@ -1,0 +1,6 @@
+*
+!.gitignore
+!ttf-google-webfonts-git/
+!spotify-gnome-git/
+!PKGBUILD
+!*install

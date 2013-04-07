@@ -1,5 +1,7 @@
 *
 !.gitignore
+!README.md
+!LICENSE.md
 !ttf-google-webfonts-git/
 !spotify-gnome-git/
 !PKGBUILD

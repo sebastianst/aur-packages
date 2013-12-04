@@ -22,6 +22,8 @@ depends=('fontconfig'
          'xorg-mkfontscale')
 makedepends=('git')
 conflicts=('googlefontdirectory'
+           'adobe-source-code-pro-fonts'
+           'adobe-source-sans-pro-fonts'
            'cantarell-fonts'
            'jsmath-fonts'
            'lohit-fonts'

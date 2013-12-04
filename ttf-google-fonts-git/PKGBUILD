@@ -12,7 +12,7 @@
 pkgname=ttf-google-fonts-git
 pkgver=20131111
 pkgrel=1
-pkgdesc="Google Fonts catalogue."
+pkgdesc="TrueType fonts from the Google Fonts project"
 arch=('any')
 url="https://github.com/w0ng/googlefontdirectory"
 license=('various')

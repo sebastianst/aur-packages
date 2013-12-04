@@ -10,15 +10,16 @@
 # Contributor: Alexander De Sousa <archaur.xandy21@spamgourmet.com>
 
 pkgname=ttf-google-fonts-git
-pkgver=20130506
+pkgver=20131111
 pkgrel=1
 pkgdesc="Google Fonts catalogue."
 arch=('any')
 url="https://github.com/w0ng/googlefontdirectory"
 license=('various')
 depends=('fontconfig' 'xorg-fonts-encodings')
-makedepends=(git)
+makedepends=('git')
 conflicts=('googlefontdirectory'
+           'cantarell-fonts'
            'jsmath-fonts'
            'lohit-fonts'
            'oldstand-font'
@@ -44,13 +45,12 @@ conflicts=('googlefontdirectory'
            'ttf-source-sans-pro'
            'ttf-ubuntu-font-family'
            'ttf-vollkorn'
-	   'ttf-google-webfonts'
-	   'ttf-oxygen'
-	   'ttf-opensans'
-	   'ttf-medievalsharp'
-	   'ttf-google-webfonts-git'
-	   'cantarell-fonts'
-	   'ttf-comfortaa')
+           'ttf-google-webfonts'
+           'ttf-oxygen'
+           'ttf-opensans'
+           'ttf-medievalsharp'
+           'ttf-google-webfonts-git'
+           'ttf-comfortaa')
 provides=("${conflicts[@]}")
 source=("git://github.com/w0ng/googlefontdirectory.git")
 md5sums=('SKIP')

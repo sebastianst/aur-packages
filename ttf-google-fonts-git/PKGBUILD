@@ -51,7 +51,7 @@ conflicts=('googlefontdirectory'
            'ttf-medievalsharp'
            'ttf-google-webfonts-git'
            'ttf-comfortaa')
-provides=("${conflicts[@]}")
+provides=("${conflicts[@]}" 'ttf-font')
 source=("git://github.com/w0ng/googlefontdirectory.git")
 md5sums=('SKIP')
 install=font.install

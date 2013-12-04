@@ -16,7 +16,10 @@ pkgdesc="TrueType fonts from the Google Fonts project"
 arch=('any')
 url="https://github.com/w0ng/googlefontdirectory"
 license=('various')
-depends=('fontconfig' 'xorg-fonts-encodings')
+depends=('fontconfig'
+         'xorg-fonts-encodings'
+         'xorg-mkfontdir'
+         'xorg-mkfontscale')
 makedepends=('git')
 conflicts=('googlefontdirectory'
            'cantarell-fonts'

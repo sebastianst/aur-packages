@@ -12,7 +12,7 @@
 pkgname=ttf-google-fonts-git
 pkgver=
 pkgrel=1
-pkgdesc="TrueType fonts from the Google Fonts project"
+pkgdesc="TrueType fonts from the Google Fonts project."
 arch=('any')
 url="https://github.com/w0ng/googlefontdirectory"
 license=('various')
@@ -63,12 +63,13 @@ conflicts=('adobe-source-code-pro-fonts'
            'ttf-source-sans-pro'
            'ttf-ubuntu-font-family'
            'ttf-vollkorn')
-provides=("${conflicts[@]}" 'ttf-font')
+provides=("${conflicts[@]}"
+          'ttf-font')
+install=font.install
 source=("git://github.com/w0ng/googlefontdirectory.git")
 md5sums=('SKIP')
-install=font.install
 
-# git variables
+# Git directory name
 _gitname="googlefontdirectory"
 
 pkgver() {

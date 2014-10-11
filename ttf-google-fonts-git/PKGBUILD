@@ -10,7 +10,7 @@
 # Contributor: Alexander De Sousa <archaur.xandy21@spamgourmet.com>
 
 pkgname=ttf-google-fonts-git
-pkgver=
+pkgver=20141001
 pkgrel=1
 pkgdesc="TrueType fonts from the Google Fonts project."
 arch=('any')
@@ -69,25 +69,35 @@ install=font.install
 source=("git://github.com/w0ng/googlefontdirectory.git")
 md5sums=('SKIP')
 
-# Git directory name
-_gitname="googlefontdirectory"
-
 pkgver() {
+  _gitname="googlefontdirectory"
+
   cd "$srcdir/$_gitname"
   git log -1 --format="%cd" --date=short | sed 's|-||g'
 }
 
 package() {
-  cd "$srcdir"
-  install -dm755 "$pkgdir/usr/share/fonts/TTF"
-  find . -type f -name \*.ttf -exec install -Dm644 '{}' \
-    "$pkgdir/usr/share/fonts/TTF" \;
 
-  # remove Cantarell fonts because Google ships the original Cantarell
-  # instead of the improved version of Cantarell shipped by the GNOME Project
-  #
-  # it is safe to remove "Cantarell-*.ttf" from this dir because the
-  # cantarell-fonts package installs its fonts into /usr/share/fonts/cantarell/
-  # and because cantarell-fonts installs .otf files instead of .ttf files
-  find "${pkgdir}/usr/share/fonts/TTF" -type f -name "Cantarell-*.ttf" -delete
+  # Font groups can be defined if wanting to be selective (OpenSans Tinos...),
+  # otherwise leave blank for all.
+  font_incl=()
+
+  cd "$srcdir"
+  _pkgdir=$pkgdir/usr/share/fonts/TTF
+  install -d $_pkgdir
+
+  if ! (( "${#font_incl[@]}" )); then
+    find . -type f -name *.ttf -exec install -Dm644 '{}' $_pkgdir \;
+  else
+    for font in "${font_incl[@]}"; do
+      find . -type f -name "$font"*.ttf -exec install -Dm644 '{}' $_pkgdir \;
+    done
+  fi
+
+  # Remove Cantarell fonts because Google ships the original Cantarell
+  # instead of the improved version of Cantarell shipped by the GNOME Project.
+  find $_pkgdir -type f -name "Cantarell-*.ttf" -delete
+
 }
+
+# vim:set ts=2 sw=2 et:

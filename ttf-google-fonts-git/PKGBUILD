@@ -68,7 +68,7 @@ conflicts=('adobe-source-code-pro-fonts'
            'ttf-fira-sans'
            'ttf-lato')
 provides=("${conflicts[@]}" 'ttf-font')
-source=("git://github.com/google/fonts.git")
+source=("https://github.com/google/fonts.git")
 md5sums=('SKIP')
 install=font.install
 
